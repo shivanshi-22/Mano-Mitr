@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Support Quiz</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-family: serif;
+        }
+        .question {
+            margin-bottom: 20px;
+            
+        }
+        label {
+            
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 10px;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Depression Support Quiz</h1>
+        <form id="quiz-form">
+            <!-- Personal Information -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label for="age">Age:</label>
+<input type="text" id="age" name="age" style="width: 300px" required>
+
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" style="width: 320px">
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="non-binary">Non-Binary</option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label for="location">Current Location:</label>
+                <input type="text" id="location" name="location" style="width: 300px" required>
+            </div>
+
+            <!-- Depression History -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label>How long have you been experiencing symptoms of depression?</label>
+                <div class="options">
+                    <label><input type="radio" name="duration" value="less-than-6-months" required> Less than 6 months</label>
+                    <label><input type="radio" name="duration" value="6-months-to-1-year"> 6 months to 1 year</label>
+                    <label><input type="radio" name="duration" value="1-3-years"> 1-3 years</label>
+                    <label><input type="radio" name="duration" value="over-3-years"> Over 3 years</label>
+                </div>
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label>Have you previously sought help for your depression?</label>
+                <div class="options">
+                    <label><input type="radio" name="sought-help" value="yes" required> Yes</label>
+                    <label><input type="radio" name="sought-help" value="no"> No</label>
+                </div>
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label>If yes, what types of help have you sought? (Check all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="help-seeking[]" value="therapy"> Therapy</label>
+                    <label><input type="checkbox" name="help-seeking[]" value="medication"> Medication</label>
+                    <label><input type="checkbox" name="help-seeking[]" value="support-groups"> Support groups</label>
+                    <label><input type="checkbox" name="help-seeking[]" value="other"> Other (please specify)</label>
+                </div>
+                <input type="text" id="other-help" name="other-help" placeholder="Please specify if other" style="width: 300px">
+            </div>
+
+            <!-- Symptoms and Impact -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label>Which of the following symptoms are you currently experiencing? (Check all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="symptoms[]" value="persistent-sadness"> Persistent sadness or low mood</label>
+                    <label><input type="checkbox" name="symptoms[]" value="loss-of-interest"> Loss of interest in activities</label>
+                    <label><input type="checkbox" name="symptoms[]" value="changes-in-appetite"> Changes in appetite or weight</label>
+                    <label><input type="checkbox" name="symptoms[]" value="sleep-disturbances"> Sleep disturbances</label>
+                    <label><input type="checkbox" name="symptoms[]" value="fatigue"> Fatigue or lack of energy</label>
+                    <label><input type="checkbox" name="symptoms[]" value="difficulty-concentrating"> Difficulty concentrating</label>
+                    <label><input type="checkbox" name="symptoms[]" value="worthlessness"> Feelings of worthlessness or guilt</label>
+                    <label><input type="checkbox" name="symptoms[]" value="self-harm"> Thoughts of self-harm or suicide</label>
+                </div>
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label>How do your symptoms impact your daily life?</label>
+                <div class="options">
+                    <label><input type="radio" name="impact" value="not-at-all" required> Not at all</label>
+                    <label><input type="radio" name="impact" value="slightly"> Slightly</label>
+                    <label><input type="radio" name="impact" value="moderately"> Moderately</label>
+                    <label><input type="radio" name="impact" value="severely"> Severely</label>
+                </div>
+            </div>
+
+            <!-- Triggers and Stressors -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label>Do you experience specific triggers or stressors that worsen your depression? (Check all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="triggers[]" value="work-stress"> Work-related stress</label>
+                    <label><input type="checkbox" name="triggers[]" value="relationship-issues"> Relationship issues</label>
+                    <label><input type="checkbox" name="triggers[]" value="financial-problems"> Financial problems</label>
+                    <label><input type="checkbox" name="triggers[]" value="health-issues"> Health issues</label>
+                    <label><input type="checkbox" name="triggers[]" value="past-trauma"> Past trauma</label>
+                    <label><input type="checkbox" name="triggers[]" value="other"> Other (please specify)</label>
+                </div>
+                <input type="text" id="other-triggers" name="other-triggers" placeholder="Please specify if other" style="width: 300px">
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label>Have you identified any patterns or situations that tend to exacerbate your symptoms?</label>
+                <textarea id="patterns" name="patterns" rows="4"style="width: 300px"></textarea>
+            </div>
+
+            <!-- Coping Strategies -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label>What strategies do you currently use to manage your depression? (Check all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="coping-strategies[]" value="self-care"> Self-care (e.g., exercise, hobbies)</label>
+                    <label><input type="checkbox" name="coping-strategies[]" value="talking-to-others"> Talking to friends or family</label>
+                    <label><input type="checkbox" name="coping-strategies[]" value="therapy"> Professional therapy</label>
+                    <label><input type="checkbox" name="coping-strategies[]" value="medication"> Medication</label>
+                    <label><input type="checkbox" name="coping-strategies[]" value="mindfulness"> Mindfulness or meditation</label>
+                    <label><input type="checkbox" name="coping-strategies[]" value="other"> Other (please specify)</label>
+                </div>
+                <input type="text" id="other-coping" name="other-coping" placeholder="Please specify if other" style="width: 300px">
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label>How effective do you find these strategies?</label>
+                <div class="options">
+                    <label><input type="radio" name="effectiveness" value="very-effective" required> Very effective</label>
+                    <label><input type="radio" name="effectiveness" value="somewhat-effective"> Somewhat effective</label>
+                    <label><input type="radio" name="effectiveness" value="not-effective"> Not effective</label>
+                    <label><input type="radio" name="effectiveness" value="none"> I don’t use any strategies</label>
+                </div>
+            </div>
+
+            <!-- Counseling Preferences -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label>What type of counseling approach are you interested in? (Check all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="counseling-approach[]" value="cbt"> Cognitive Behavioral Therapy (CBT)</label>
+                    <label><input type="checkbox" name="counseling-approach[]" value="psychodynamic"> Psychodynamic Therapy</label>
+                    <label><input type="checkbox" name="counseling-approach[]" value="humanistic"> Humanistic Therapy</label>
+                    <label><input type="checkbox" name="counseling-approach[]" value="solution-focused"> Solution-Focused Brief Therapy</label>
+                    <label><input type="checkbox" name="counseling-approach[]" value="integrative"> Integrative or Holistic Therapy</label>
+                    <label><input type="checkbox" name="counseling-approach[]" value="other"> Other (please specify)</label>
+                </div>
+                <input type="text" id="other-approach" name="other-approach" placeholder="Please specify if other" style="width: 300px">
+            </div>
+            <div class="question" style="margin-bottom: 32px;">
+                <label>Do you have any preferences regarding the counselor’s characteristics?</label>
+                <div class="options">
+                    <label><input type="checkbox" name="preferences[]" value="gender"> Gender</label>
+                    <label><input type="checkbox" name="preferences[]" value="age"> Age</label>
+                    <label><input type="checkbox" name="preferences[]" value="cultural-background"> Cultural background</label>
+                    <label><input type="checkbox" name="preferences[]" value="specialty-areas"> Specialty areas</label>
+                </div>
+            </div>
+
+            <!-- Final Thoughts -->
+            <div class="question" style="margin-bottom: 32px;">
+                <label>Is there anything else you’d like to share about your experience with depression or your preferences for counseling?</label>
+                <textarea id="final-thoughts" name="final-thoughts" rows="4" style="width: 300px"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            const formData = new FormData(event.target);
+            const params = new URLSearchParams();
+            
+            for (const [key, value] of formData.entries()) {
+                if (Array.isArray(value)) {
+                    value.forEach(v => params.append(key, v));
+                } else {
+                    params.append(key, value);
+                }
+            }
+
+            // Redirect to the results page with query parameters
+            window.location.href = `results.html?${params.toString()}`;
+        });
+    </script>
+</body>
+</html>

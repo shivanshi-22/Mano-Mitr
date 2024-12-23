@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .question p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-check-label {
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            font-size: 1.1rem;
+        }
+
+        .next-button {
+            display: none;
+        }
+
+        .question.active .next-button {
+            display: inline-block;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .question {
+            display: none;
+        }
+
+        .question:first-child {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop class="video-bg">
+        <source src="{{ url_for('static', filename='q.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container quiz-container">
+        <h1 class="text-center">Mental Health Assessment Quiz</h1>
+        <form id="quiz-form" method="POST">
+            {% if quiz_data %}
+                {% for i, question_data in enumerate(quiz_data) %}
+                <div class="question" id="question_{{ i }}">
+                    <p><strong>{{ question_data['question'] }}</strong></p>
+                    {% for option in question_data['options'] %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question_{{ i }}" value="{{ option['text'] }}" required>
+                        <label class="form-check-label">
+                            {{ option['text'] }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                    <br>
+                    {% if not loop.last %}
+                    <button type="button" class="btn btn-primary next-button" onclick="nextQuestion({{ i }})">Next</button>
+                    {% else %}
+                    <button type="submit" class="btn btn-success mt-3">Submit</button>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No quiz data available.</p>
+            {% endif %}
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function nextQuestion(currentIndex) {
+            document.getElementById(`question_${currentIndex}`).style.display = 'none';
+            const nextIndex = currentIndex + 1;
+            const nextQuestion = document.getElementById(`question_${nextIndex}`);
+            if (nextQuestion) {
+                nextQuestion.style.display = 'block';
+            }
+        }
+
+        // Ensure at least one option is selected before showing the next button
+        document.querySelectorAll('input[type=radio]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                const questionDiv = this.closest('.question');
+                const nextButton = questionDiv.querySelector('.next-button');
+                nextButton.style.display = 'inline-block';
+            });
+        });
+    </script>
+</body>
+
+</html>

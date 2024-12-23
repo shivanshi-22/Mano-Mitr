@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}WhisperTalk Login{% endblock %}
+{% block content %}
+    <style>
+    </style>
+
+    <div class="login-container">
+        <div class="login-tabs">
+            <div class="login-tab active" onclick="toggleForm('loginForm')">Login</div>
+        </div>
+
+        <div id="loginForm" class="login-form-section active">
+            <form action="/login" method="post">
+                <label for="username">Username</label>
+                <input class="input-fields" type="username" id="username" name="username" placeholder="Enter username or email" required>
+                <label for="password">Password</label>
+                <input class="input-fields" type="password" id="password" name="password" placeholder="Enter password" required>
+                <button class="btn-primary" type="submit">Login</button>
+            </form>
+        </div>
+
+
+    <script>
+        function toggleForm(formName) {
+            const forms = document.querySelectorAll('.login-form-section');
+            const tabs = document.querySelectorAll('.login-tab');
+            forms.forEach(form => form.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(formName).classList.add('active');
+            const activeTab = Array.from(tabs).find(tab => tab.textContent.toLowerCase() === formName.toLowerCase().replace('form', ''));
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+        }
+    </script>
+{% endblock %}

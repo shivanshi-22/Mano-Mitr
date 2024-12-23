@@ -1,0 +1,60 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Result</title>
+        <style>
+            .start-btn-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-family: "Roboto", sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background: #f0f8ff;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .start-btn-container h2 {
+                font-size: 36px;
+                margin: 0 0 16px 0;
+                color: #003366;
+            }
+            .start-btn-container p {
+                font-size: 18px;
+                color: #001f3f;
+                margin: 0 0 24px 0;
+            }
+            .start-btn-container .start-btn {
+                background: #003366;
+                color: #f0f8ff;
+                padding: 12px 32px;
+                border-radius: 8px;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-weight: bold;
+                transition: background 0.3s, box-shadow 0.3s;
+            }
+            .start-btn-container .start-btn:hover {
+                background: #002244;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="start-btn-container">
+            <h2>Screening has been done successfully!</h2>
+            <p>Take this quiz as the final step in your screening process.</p>
+            <button class="start-btn" onclick="window.location.href='http://127.0.0.1:5002'">Start Quiz</button>
+        </div>
+    </body>
+    </html>
+    

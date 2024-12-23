@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color:  #282c35;
+
+}
+.navbar {
+    background-color: #1f2127;
+}
+
+.username-field {
+    font-weight: bold;
+    margin-left: 1rem;
+    color: rgb(227, 225, 225) !important;
+    font-size: 16px !important;
+}
+
+.username-field::after {
+    display: none;
+}
+        
+.login-container {
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(75, 75, 75, 0.8);
+    margin: 2% auto;
+}
+
+.login-tabs {
+    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    color:white;
+    font-size:20px;
+}
+
+.login-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.login-tab.active {
+    background-color: #1f2127 !important;
+}
+
+.login-form-section {
+    display: none;
+    padding: 20px;
+    background-color: #1f2127; /* Unify background color with tabs */
+    border-radius: 0 0 10px 10px;
+}
+
+.login-form-section.active {
+    display: block;
+}
+
+.login-form-section label {
+    color: #ffffff;
+    margin-bottom: 5px;
+    display: block;
+}
+.btn-primary {
+    padding: 10px;
+    border-radius: 7px;
+    width:100%;
+    margin-top:25px;
+}
+.btn-secondary {
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:12px;
+}
+.input-fields {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    background-color: #1f2127;
+    color: #ffffff;
+    outline:none;
+}
+.edit-room-container {
+    padding: 20px;
+    background-color: #1f2127;
+    box-shadow: 0 0 20px rgba(92, 92, 92, 0.8), 0 0 40px rgba(85, 85, 85, 0.5), 0 0 80px rgba(55, 56, 56, 0.3);
+    margin: 5%;
+}
+
+.edit-room-form {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.edit-room-container .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-room-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #f3f3f3;
+}
+
+.edit-room-container input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+    margin-top: 5px;
+    background-color: #1f2127;
+    resize:none;
+    outline:none;
+    color:#ffffff;
+}
+
+.edit-room-container {
+    padding: 20px;
+    background-color: #1f2127;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(89, 89, 89, 0.8), 0 0 40px rgba(87, 87, 87, 0.5), 0 0 80px rgba(62, 62, 62, 0.3);
+    margin: 5%;
+}
+
+.edit-room-form {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.edit-room-container .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-room-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.edit-room-container .btn-primary {
+    margin:5px;
+    width: 25%;
+}
