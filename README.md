@@ -72,8 +72,12 @@ Join a nurturing space where users can share experiences, gain peer support, and
 
 ---
 
-## 🤝 Collaboration & Future Vision
-We aim to partner with healthcare institutions and expand our platform with additional features. Contributions are welcome!
+## 🤝 TEAM MEMBERS:
+1. SAKSHAM KUMAR DAHIYA
+2. SAMRIDDHI GUPTA
+3. KHUSHI GOEL
+4. NIKUNJ SAINI
+5. SANKRIHSHNA GOYEL
 
 ### Contributing:
 1. Fork the repository
